@@ -12,5 +12,12 @@ public class Main {
         boxArray[1].printVolume();
         boxArray[2].printVolume();
         boxArray[3].printVolume();
+
+        for (int x =0; x<boxArray.length; x++){
+            boxArray[x].printVolume();
+        }
+        for (Box b1:boxArray){
+            b1.printVolume();
+        }
     }
 }
