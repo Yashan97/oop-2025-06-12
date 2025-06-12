@@ -16,4 +16,11 @@ public class Box {
         int settot = a*b*c;
         System.out.println("sey size new box- "+settot);
     }
+    public  void setsizewithsameNameVariable(int width, int height, int length){
+        this.height = height;
+        this.length = length;
+        this.width = width;
+
+        System.out.println("box volume is with same name parameters and same name attribute - "+ height*length*width);
+    }
 }
