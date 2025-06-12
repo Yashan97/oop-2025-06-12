@@ -1,4 +1,4 @@
 public class Test {
     int a;
-    int b;
+    static int b;
 }
