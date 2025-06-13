@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddCustomer extends JFrame {
      private    JLabel addCustomerForm;
@@ -16,6 +18,8 @@ public class AddCustomer extends JFrame {
      private JTextField txtAddress;
      private JTextField txtSalary;
 
+     Customer [] customerArray = new Customer[0];
+
     AddCustomer(){
 
         addCustomerForm = new JLabel("Add Customer Form");
@@ -27,6 +31,25 @@ public class AddCustomer extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         addbtn = new JButton("Add");
         addbtn.setFont(new Font("",1,15));
+        addbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String id = txtid.getText();
+                String name = txtName.getText();
+                String address = txtAddress.getText();
+                Double salary = Double.parseDouble(txtSalary.getText());
+
+                Customer c1 = new Customer(id,name,address,salary);
+                Customer []tempCustomerArray = new Customer[customerArray.length+1];
+
+                for (int i = 0; i<customerArray.length; i++){
+                    tempCustomerArray[i]= customerArray[i];
+                    }
+                customerArray = tempCustomerArray;
+                customerArray[customerArray.length-1]=c1;
+
+            }
+        });
         buttonPanel.add(addbtn);
 
         cancelbtn = new JButton("Cancel");
@@ -66,6 +89,7 @@ public class AddCustomer extends JFrame {
         JPanel txtJpanel = new JPanel(new GridLayout(4,1));
         txtid = new JTextField(10);
         txtid.setFont(new Font("",1,20));
+        txtid.setEditable(false);
         JPanel txtJpanelId = new JPanel(new FlowLayout(FlowLayout.LEFT));
         txtJpanelId.add(txtid);
         txtJpanel.add(txtJpanelId);
@@ -90,5 +114,18 @@ public class AddCustomer extends JFrame {
 
         add(txtJpanel);
         pack();
+
+        generateID();
+    }
+    private void generateID(){
+
+        if (customerArray.length<=0){
+            txtid.setText("C001");
+        }else{
+        String lastID = customerArray[customerArray.length-1].getId();
+        int lastIdnumber = Integer.parseInt(lastID.substring(1));
+            String newID = String.format("C%02d",(lastIdnumber));
+            txtid.setText(newID);
+        }
     }
 }
