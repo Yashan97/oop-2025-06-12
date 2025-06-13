@@ -1,17 +1,15 @@
 import javax.swing.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        JFrame f1 = new JFrame();
-        f1.setVisible(true);
-        f1.setSize(600, 600);
-        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f1.setLocationRelativeTo(null);
-        f1.setVisible(true);
-        f1.setTitle("calculator");
+        Calculator  c1 = new Calculator();
+        c1.setSize(600, 600);
+        c1.setTitle("calculator");
+        c1.setLocationRelativeTo(null);
+        c1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        c1.setVisible(true);
+
 
 
 
