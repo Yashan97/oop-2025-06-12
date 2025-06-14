@@ -3,33 +3,29 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddCustomer extends JFrame {
+public class StudentAddFrome extends JFrame {
 
+    private  JLabel addStudentForm;
+    private  JButton addbtn;
+    private  JButton cancelbtn;
 
+    private  JLabel lblID;
+    private  JLabel lblName;
+    private  JLabel lblAddress;
+    private  JLabel lblSalary;
 
-     private  JLabel addCustomerForm;
-     private  JButton addbtn;
-     private  JButton cancelbtn;
+    private JTextField txtid;
+    private JTextField txtName;
+    private JTextField txtAddress;
+    private JTextField txtSalary;
 
-     private  JLabel lblID;
-     private  JLabel lblName;
-     private  JLabel lblAddress;
-     private  JLabel lblSalary;
+    StudentAddFrome(){
 
-     private JTextField txtid;
-     private JTextField txtName;
-     private JTextField txtAddress;
-     private JTextField txtSalary;
-
-     //Customer [] customerArray = new Customer[0];
-
-    AddCustomer(){
-
-        addCustomerForm = new JLabel("Add Customer Form");
-        addCustomerForm.setFont(new Font("",1,30));
-        addCustomerForm.setHorizontalAlignment(JLabel.CENTER);
-        addCustomerForm.setBackground(Color.blue);
-        add("North",addCustomerForm);
+        addStudentForm = new JLabel("Add Student Form");
+        addStudentForm.setFont(new Font("",1,30));
+        addStudentForm.setHorizontalAlignment(JLabel.CENTER);
+        addStudentForm.setBackground(Color.blue);
+        add("North",addStudentForm);
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         addbtn = new JButton("Add");
@@ -38,26 +34,23 @@ public class AddCustomer extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = txtid.getText();
-                String name = txtName.getText();
-                String address = txtAddress.getText();
+                String name = txtid.getText();
+                String address = txtid.getText();
                 Double salary = Double.parseDouble(txtSalary.getText());
 
-                Customer c1 = new Customer(id,name,address,salary);
-                Customer []tempCustomerArray = new Customer[CustomerDB.customerArray.length+1];
+                Student student = new Student(id,name,address,salary);
+                Student tempStudentArry [] = new Student[StudentDB.studentArray.length+1];
 
-                for (int i = 0; i<CustomerDB.customerArray.length; i++){
-                    tempCustomerArray[i]= CustomerDB.customerArray[i];
-                    }
-                CustomerDB.customerArray = tempCustomerArray;
-                // System.out.println(c1);
-                CustomerDB.customerArray[CustomerDB.customerArray.length-1]=c1;
-                // System.out.println(customerArray[0]);
-                JOptionPane.showMessageDialog(null,"Added Success");
+                for (int i=0; i<StudentDB.studentArray.length; i++){
+                    tempStudentArry[i] =StudentDB.studentArray[i];
+                }
+                StudentDB.studentArray = tempStudentArry;
+                StudentDB.studentArray[StudentDB.studentArray.length-1]= student;
+                JOptionPane.showMessageDialog(null, "Added Success");
                 generateID();
-                txtName.setText(" ");
-                txtAddress.setText(" ");
-                txtSalary.setText(" ");
-              //  System.out.println(customerArray[0].getId());
+                txtName.setText("");
+                txtAddress.setText("");
+                txtSalary.setText("");
             }
         });
         buttonPanel.add(addbtn);
@@ -136,13 +129,15 @@ public class AddCustomer extends JFrame {
     }
     private void generateID(){
 
-        if (CustomerDB.customerArray.length<=0){
+       if (StudentDB.studentArray.length<=0){
             txtid.setText("C001");
         }else{
-        String lastID = CustomerDB.customerArray[CustomerDB.customerArray.length-1].getId();
-        int lastIdnumber = Integer.parseInt(lastID.substring(1));
+            String lastID = StudentDB.studentArray[StudentDB.studentArray.length-1].getId();
+            int lastIdnumber = Integer.parseInt(lastID.substring(1));
             String newID = String.format("C%03d",(lastIdnumber+1));
             txtid.setText(newID);
         }
     }
+
 }
+

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Customer {
     private  String id;
     private  String name;
@@ -9,6 +11,18 @@ public class Customer {
         this.name = name;
         this.address = address;
         this.salary=salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(address, customer.address) && Objects.equals(salary, customer.salary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, salary);
     }
 
     public String getId() {

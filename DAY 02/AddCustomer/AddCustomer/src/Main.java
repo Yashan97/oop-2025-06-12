@@ -12,11 +12,11 @@ public class Main {
         customer.setLocationRelativeTo(null);
         customer.setVisible(true);
 
-        ViewCustomerForm custoemrView = new ViewCustomerForm();
+       /* ViewCustomerForm custoemrView = new ViewCustomerForm();
         custoemrView.setSize(400,400);
         custoemrView.setTitle("View Customer Form");
         custoemrView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         custoemrView.setLocationRelativeTo(null);
-        custoemrView.setVisible(true);
+        custoemrView.setVisible(true); */
     }
 }
