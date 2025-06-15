@@ -19,5 +19,12 @@ public class Main {
         search.setLocationRelativeTo(null);
         search.setVisible(true);
 
+        DeleteStudentForm delete = new DeleteStudentForm();
+        delete.setSize(400,400);
+        delete.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        delete.setTitle("Search Student Form");
+        delete.setLocationRelativeTo(null);
+        delete.setVisible(true);
+
     }
 }
