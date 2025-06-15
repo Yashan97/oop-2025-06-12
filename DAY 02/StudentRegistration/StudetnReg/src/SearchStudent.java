@@ -31,6 +31,16 @@ public class SearchStudent extends JFrame {
         searchbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String id= txtid.getText();
+                int index = searchStudent(id);
+                if (index!=-1){
+                    Student student = StudentDB.studentArray[index];
+                    txtName.setText(student.getName());
+                    txtAddress.setText(StudentDB.studentArray[index].getAddress());
+                    txtSalary.setText(student.getSalary()+"");
+                }else {
+                    JOptionPane.showMessageDialog(null,"Not found this id Number ");
+                }
 
             }
         });
@@ -100,7 +110,7 @@ public class SearchStudent extends JFrame {
 
         txtSalary = new JTextField(15);
         txtSalary.setFont(new Font("",1,18));
-        txtAddress.setEditable(false);
+        txtSalary.setEditable(false);
         JPanel txtJSalary =  new JPanel(new FlowLayout(FlowLayout.LEFT));
         txtJSalary.add(txtSalary);
         txtJpanel.add(txtJSalary);
@@ -110,6 +120,14 @@ public class SearchStudent extends JFrame {
 
 
         txtName.requestFocus();
+    }
+    private  int searchStudent(String id){
+        for (int i =0; i<StudentDB.studentArray.length; i++){
+            if (StudentDB.studentArray[i].getId().equals(id)){
+                return i;
+            }
+        }
+        return -1;
     }
 
 }

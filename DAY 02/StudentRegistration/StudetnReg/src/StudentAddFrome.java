@@ -34,8 +34,8 @@ public class StudentAddFrome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String id = txtid.getText();
-                String name = txtid.getText();
-                String address = txtid.getText();
+                String name = txtName.getText();
+                String address = txtAddress.getText();
                 Double salary = Double.parseDouble(txtSalary.getText());
 
                 Student student = new Student(id,name,address,salary);

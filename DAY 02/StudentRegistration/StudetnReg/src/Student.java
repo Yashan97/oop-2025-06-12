@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Student {
     private String id;
     private String name;
@@ -41,5 +43,13 @@ public class Student {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, salary);
     }
 }
