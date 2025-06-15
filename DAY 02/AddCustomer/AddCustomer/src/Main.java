@@ -12,6 +12,14 @@ public class Main {
         customer.setLocationRelativeTo(null);
         customer.setVisible(true);
 
+
+        SearchCustomerForm search = new SearchCustomerForm();
+        search.setSize(400,400);
+        search.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        search.setTitle("Add Customer Form");
+        search.setLocationRelativeTo(null);
+        search.setVisible(true);
+
        /* ViewCustomerForm custoemrView = new ViewCustomerForm();
         custoemrView.setSize(400,400);
         custoemrView.setTitle("View Customer Form");
