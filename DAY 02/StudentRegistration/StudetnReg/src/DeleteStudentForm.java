@@ -27,7 +27,7 @@ public class DeleteStudentForm  extends JFrame {
         add("North", addStudentForm);
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        deletebtn = new JButton("Search");
+        deletebtn = new JButton("Delete");
         deletebtn.setFont(new Font("", 1, 15));
         deletebtn.addActionListener(new ActionListener() {
             @Override
